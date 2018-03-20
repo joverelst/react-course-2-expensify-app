@@ -10,7 +10,7 @@ module.exports = (env) => {
     entry: './src/app.js',
     //entry: './src/playground/hoc.js',
     output: {
-      path: path.join(__dirname, '/public/'),
+      path: path.join(__dirname, 'public','dist'),
       filename: 'bundle.js'
     },
     module: {
@@ -48,8 +48,9 @@ module.exports = (env) => {
     // with css: inline-source-map
     devtool: isProduction ? 'source-map' : 'inline-source-map', // makes sources map
     devServer: {
-      contentBase: path.join(__dirname, '/public/'), // sets content directory, usually public
-      historyApiFallback: true // nesecary for React Router, activates client side routing
+      contentBase: path.join(__dirname, 'public'), // sets content directory, usually public
+      historyApiFallback: true, // nesecary for React Router, activates client side routing
+      publicPath: '/dist/' // adds a path to the servers contentBase
     }
   };
 };
